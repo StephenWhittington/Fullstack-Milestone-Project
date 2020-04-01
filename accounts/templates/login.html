@@ -1,29 +1,13 @@
-<html>
-    <head>
-        <title>Find Your Artifact</title>
-    </head>
-    <body>
-        <h1>User Login</h1>
-        <nav>
-            <li><a href="#">Home</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="#">Register</a></li>
-        </nav>
-        <hr>
-        {% if messages %}
-        <div>
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
-        {% endif %}
-        
-        <form method="POST">
+{% extends 'base.html' %}
+
+{% block page_title %}Login Page{% endblock %}
+
+{% block page_header %}User Login{% endblock %}
+
+{% block content%}
+ <form method="POST">
         {% csrf_token %}
             {{ login_form }}
             <button type="submit">Login</button>   
         </form>
-        
-    </body>
-</html>
+{% endblock %}
