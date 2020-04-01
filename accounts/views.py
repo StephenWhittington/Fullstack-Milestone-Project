@@ -14,5 +14,19 @@ def logout(request):
     
 def login(request):
     """returns a login page"""
-    login_form = UserLoginForm()
+    if request.method == "POST":
+        login_form = UserLoginForm(request.POST)
+
+        if login_form.is_valid():
+            user = auth.authenticate(username=request.POST['username'],
+                                    password=request.POST['password'])
+
+            messages.success(request, "You have successfully loged in!")
+
+            if user:
+                auth.login(user=user, request=request)
+            else:
+                login_form.add_error(None, "Your username or password is Incorrect")
+    else:
+        login_form = UserLoginForm()
     return render(request, 'login.html', {"login_form": login_form})
