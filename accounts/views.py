@@ -13,7 +13,10 @@ def logout(request):
     return redirect(reverse('index'))
     
 def login(request):
-    """returns a login page"""
+    """returns a login page and redirects the user to the home page
+    after they log in"""
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
 
@@ -23,6 +26,7 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in!")
+                return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password was entered incorrectly")         
     else:
