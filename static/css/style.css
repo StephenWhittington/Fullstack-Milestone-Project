@@ -1,0 +1,11 @@
+.background_image {
+    height: 100vh;
+    background: url("../images/webpage_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
