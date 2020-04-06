@@ -9,3 +9,9 @@
     position: relative;
     justify-content: center;
 }
+
+form {
+    width: 50%;
+    margin-left: 25%;
+    margin-right:25%;
+}
