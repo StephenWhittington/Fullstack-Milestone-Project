@@ -137,7 +137,6 @@ STATICFILES_DIRS = (
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.CaseInsensitiveAuth',
-    'django.core.mail.backends.console.EmailBackend'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
