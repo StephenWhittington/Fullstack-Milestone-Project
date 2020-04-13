@@ -1,1 +1,1 @@
-web: gunicorn blog.wsgi:application
+web: gunicorn find_your_artifact.wsgi:application
