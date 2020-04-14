@@ -162,7 +162,7 @@ AUTHENTICATION_BACKENDS = [
     'accounts.backends.CaseInsensitiveAuth',
 ]
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_ADDRESS')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
