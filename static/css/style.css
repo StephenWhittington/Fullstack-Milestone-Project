@@ -1,3 +1,7 @@
+body {
+    font-family: Arial;
+}
+
 .background_image {
     height: 100vh;
     background: url("../images/webpage_background.jpg") no-repeat center center fixed;
@@ -47,6 +51,8 @@ form {
     padding: 0 10px;
 }
 
-.artifact-description {
+.artifact-info {
     min-height: 40px;
+    text-align: center;
+    color: white;
 }
