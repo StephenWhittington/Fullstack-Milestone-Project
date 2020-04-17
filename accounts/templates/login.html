@@ -7,7 +7,7 @@
 {% block page_header %}User Login{% endblock %}
 
 {% block content %}
- <form method="POST" action="{% url 'login' %}?next={{ next }}" class="accountform">
+ <form class="user-forms" method="POST" action="{% url 'login' %}?next={{ next }}" class="accountform">
         {% csrf_token %}
             {{ user_form | as_bootstrap }}
             <button type="submit" class="btn btn-light">Login</button>   
