@@ -13,7 +13,7 @@
         <div class="caption">
             <h3 class="artifact-info">{{ item.artifact.name }}</h3>
             <p class="artifact-info">{{ item.artifact.description }}</p>
-            <p class="artifact-info">{{ item.artifact.price }}</p>
+            <p class="artifact-info"><i class="fa fa-euro"></i>{{ item.artifact.price }}</p>
             <p>
                 <form class="form-inline" method="POST" action="{% url 'adjust_basket' item.id %}">
                     {% csrf_token %}
@@ -25,17 +25,17 @@
                             <div class="input-group-addon">{{ item.quantity }}</div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                    <button type="submit" class="btn btn-primary">Amend <i class="fa fa-repeat" aria-hidden="true"></i></button>
                 </form>
             </p>
         </div>
     </div>
     {% endfor %}
 </div>
-<div class="row">
-    <p>Total</p>
-    <p><i class="fa fa-pound-sign"></i>{{ total }}</p>
-    <a href="/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Bid or Buy</a>
+<div class="row no-margin">
+    <p class="artifact-info">Total</p>
+    <i class="fa fa-euro"></i><p class="artifact-info">{{ total }}</p>
+    <a href="/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
 </div>
 
 {% endblock %}

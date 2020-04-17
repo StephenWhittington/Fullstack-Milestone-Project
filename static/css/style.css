@@ -19,6 +19,7 @@ body {
     padding-top: 20px;
     margin-left: 25%;
     margin-right:25%;
+    color: #ddd
 }
 
 .reset-pass {
@@ -59,4 +60,8 @@ body {
 
 caption p {
     word-wrap: break-word;
+}
+
+.no-margin {
+    margin-left: 0;
 }

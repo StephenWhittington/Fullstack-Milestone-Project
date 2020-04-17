@@ -12,7 +12,7 @@
 
         <h2 class="artifact-info">{{ artifact.name }}</h2>
         <p class="artifact-info">{{ artifact.description }}</p>
-        <p class="artifact-info">{{ artifact.price }}</p>
+        <p class="artifact-info"><i class="fa fa-euro"></i>{{ artifact.price }}</p>
 
         <form method="POST" action="{% url 'add_to_basket' artifact.id %}">
             {% csrf_token %}
