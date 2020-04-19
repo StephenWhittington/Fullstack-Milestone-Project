@@ -93,3 +93,7 @@ footer {
 .accountform {
     padding-top: 20px;
 }
+
+.input-group {
+    flex-wrap: nowrap;
+}
