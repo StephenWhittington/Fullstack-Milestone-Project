@@ -29,19 +29,40 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
                     {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'view_basket' %}"><i class="fa fa-shopping-cart"></i> Basket
+                            {% if artifact_count > 0 %}
+                            <label class="badge badge-warning">{{ artifact_count }}</label>
+                            {% endif %}
+                        </a></li>
                 </ul>
             </div>
         </header>
     </nav>
-    <h1>{% block page_header %}{% endblock %}</h1>
-        {% if messages %}
-        <div>
+    <h1 class="user-forms">{% block page_header %}{% endblock %}</h1>
+    {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
+            </div>
         </div>
-        {% endif %}
+    {% endif %}
+    <div class="container-fluid">
+        <div class="display">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="q">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
         {% block content %}{% endblock %}
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Made By Stephen Whittington</h3>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

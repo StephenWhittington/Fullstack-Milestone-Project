@@ -40,6 +40,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
+    margin-right: 0px; 
+    margin-left: 0px;
 }
 
 .panel-body {
@@ -64,4 +66,26 @@ caption p {
 
 .no-margin {
     margin-left: 0;
+    margin-right: 0;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #ededed;
+    color: white;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
 }

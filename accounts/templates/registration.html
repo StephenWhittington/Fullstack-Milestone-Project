@@ -7,7 +7,7 @@
 {% block page_header %}Create An Account{% endblock %}
 
 {% block content %}
-<p>If you have an account already, you can <a href="{% url 'login' %}"><strong>sign in</strong></a></p>
+<p class="user-forms">If you have an account already, you can <a href="{% url 'login' %}"><strong>sign in</strong></a></p>
 
 <form class="user-forms" method="POST" action="{% url 'registration' %}" class="accountform">
         {% csrf_token %}
