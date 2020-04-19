@@ -10,6 +10,8 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block page_title %}{% endblock %}</title>
+    {% block head_js %}
+    {% endblock head_js %}
 </head>
 <body class="background_image">
 

@@ -21,6 +21,7 @@ from artifacts import urls as urls_artifacts
 from basket import urls as urls_basket
 from artifacts.views import all_artifacts
 from search import urls as urls_search
+from checkout import urls as urls_checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^artifacts/', include(urls_artifacts)),
     url(r'^basket/', include(urls_basket)),
+    url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT})
 ]

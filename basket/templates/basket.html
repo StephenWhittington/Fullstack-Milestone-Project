@@ -35,7 +35,7 @@
 <div class="row no-margin">
     <p class="artifact-info">Total:</p>
     <span class="artifact-info"><i class="fa fa-euro"></i>{{ total }}</span>
-    <a href="/" class="btn btn-success" role="button">Checkout<i class="fa fa-check" aria-hidden="true"></i></a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout<i class="fa fa-check" aria-hidden="true"></i></a>
 </div>
 
 {% endblock %}
