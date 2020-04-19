@@ -19,7 +19,7 @@ body {
     padding-top: 20px;
     margin-left: 25%;
     margin-right:25%;
-    color: #ddd
+    color: #fff;
 }
 
 .reset-pass {
@@ -55,7 +55,7 @@ body {
 }
 
 .artifact-info {
-    min-height: 40px;
+    min-height: 20px;
     text-align: center;
     color: white;
 }
@@ -88,4 +88,8 @@ footer {
 .label-warning[href],
 .badge-warning[href] {
     background-color: #c67605;
+}
+
+.accountform {
+    padding-top: 20px;
 }

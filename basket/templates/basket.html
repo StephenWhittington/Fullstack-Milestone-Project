@@ -20,9 +20,9 @@
                     <div class="form-group">
                         <label for="exampleInputAmount" class="sr-only">Change Qty</label>
                         <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
+                            <div class="input-group-addon"><h4>Qty:</h4></div>
                             <input name="quantity" type="number" min="0" max="5" class="form-control">
-                            <div class="input-group-addon">{{ item.quantity }}</div>
+                            <div class="input-group-addon"><h4>{{ item.quantity }}</h4></div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Amend <i class="fa fa-repeat" aria-hidden="true"></i></button>
@@ -35,7 +35,7 @@
 <div class="row no-margin">
     <p class="artifact-info">Total:</p>
     <span class="artifact-info"><i class="fa fa-euro"></i>{{ total }}</span>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout<i class="fa fa-check" aria-hidden="true"></i></a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout <i class="fa fa-check" aria-hidden="true"></i></a>
 </div>
 
 {% endblock %}
