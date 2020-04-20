@@ -45,8 +45,8 @@ body {
 }
 
 .panel-body {
-    height: 100%;
     border: 1px solid #ddd;
+    background-color: #343a40;
 }
 
 .panel-default {
@@ -104,6 +104,3 @@ footer {
     border-top: 1px solid #ededed;
 }
 
-.form-inline {
-    
-}
