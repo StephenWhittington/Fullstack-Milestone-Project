@@ -7,6 +7,8 @@
 {% block page_header %}User Login{% endblock %}
 
 {% block content %}
+<p class="user-forms">If you do not have an account, please register here. <a href="{% url 'registration' %}"><strong>Register</strong></a></p>
+
  <form class="user-forms" method="POST" action="{% url 'login' %}?next={{ next }}" class="accountform">
         {% csrf_token %}
             {{ user_form | as_bootstrap }}
