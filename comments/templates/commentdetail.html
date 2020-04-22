@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block page_title %}Comment Details{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-10 col-md-9">
+            {% if comment.image %}
+                <div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ comment.image }}')"></div>
+            {% endif %}
+            <h3 class="artifact-info">{{ comment.title }}</h3>
+                <div class="col-xs-9">
+                    <p class="artifact-info">{{ post.content }}</p>
+                    <p class="artifact-info"><span class="boldtext">Posted on:</span> {{ comment.published_date }} </p>
+                    <p class="artifact-info"><span class="boldtext">Views:</span> {{comment.views}}</p>
+                    <p class="artifact-info"><span class="boldtext">Tag:</span> {{ comment.tag }}</p>
+                    <a href="{% url 'get_comments' %}" class="btn btn-default">Back to Comments</a>
+                    <a href="{% url 'edit_comment' comment.id %}" class="btn btn-submit">Edit Comment</a>
+                    <hr>
+                </div>
+        </div>
+
+</div>
+
+{% endblock %}
