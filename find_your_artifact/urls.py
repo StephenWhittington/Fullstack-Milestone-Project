@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from accounts.views import index
 from accounts import urls as urls_accounts
 from artifacts import urls as urls_artifacts
+from comments import urls as urls_comments
 from basket import urls as urls_basket
 from artifacts.views import all_artifacts
 from search import urls as urls_search
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^$', all_artifacts, name="index"),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^artifacts/', include(urls_artifacts)),
+    url(r'^comments/', include(urls_comments)),
     url(r'^basket/', include(urls_basket)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),

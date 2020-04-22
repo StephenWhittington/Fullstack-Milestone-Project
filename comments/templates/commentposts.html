@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block page_title %}Comments{% endblock %}
+
+{% block content %}
+{% for comment in comments %}
+
+<div class="row">
+    <div class="col-md-10 col-sm-9">
+        <div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ comment.image }}')"></div>
+        <h3>{{ comment.title }}</h3>
+            <div class="col-xs-9">
+                <p>{{ post.content|truncatewords:30 }}</p>
+                <p><a href="{% url 'comment_detail' comment.id %}"  class="btn btn-default">Read more</a></p>
+                <p><span class="boldtext">Posted on:</span> {{ comment.published_date }} </p>
+                <p><span class="boldtext">Views:</span> {{comment.views}}</p>
+                <p><span class="boldtext">Tag:</span> {{ comment.tag }}</p>
+            </div>
+        </div>
+    <hr>
+</div>
+{% endfor %}
+{% endblock %}

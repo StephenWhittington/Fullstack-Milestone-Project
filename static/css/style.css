@@ -104,3 +104,7 @@ footer {
     border-top: 1px solid #ededed;
 }
 
+.boldtext{
+    font-weight: bold;
+    color: #fff;
+}
