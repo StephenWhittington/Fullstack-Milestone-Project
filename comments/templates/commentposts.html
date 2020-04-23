@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <p class="artifact-info"><span class="boldtext">User:</span> {{ user.username}}</p>
+        <p class="artifact-info"><span class="boldtext">User:</span> {{ user.username }}</p>
             <h3 class="artifact-info">{{ comment.title }}</h3>
             <div class="col-md-12">
                 <p class="artifact-info">{{ comment.content|truncatewords:30 }}</p>
@@ -19,7 +19,7 @@
                 <p class="artifact-info"><span class="boldtext">Tag:</span> {{ comment.tag }}</p>
             </div>
     </div>
-    <hr>
 </div>
+<hr>
 {% endfor %}
 {% endblock %}
