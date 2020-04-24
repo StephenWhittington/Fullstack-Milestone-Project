@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import Customer
 
 class UserLoginForm(forms.Form):
     """form to log in users"""
@@ -38,3 +39,18 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords do not match")
 
         return password2
+
+class CustomerForm(forms.ModelForm):
+    """
+    The form for a user to fill out their basic profile information 
+    """
+    def __init__(self, *args, **kwargs):
+        super(CustomerForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Customer
+        fields = [
+            'full_name', 'phone_number', 'country', 'postcode',
+            'town_or_city', 'street_address1', 'street_address2',
+            'county'
+        ]
