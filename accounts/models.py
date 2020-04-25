@@ -12,7 +12,7 @@ class Customer(models.Model):
     describe to other users what they are looking for)
     - address
     We also of course use a OneToOneField to link it to a specific user!
-    
+
     """
     user = models.OneToOneField(User)
     full_name = models.CharField(max_length=50, blank=False)
@@ -24,5 +24,5 @@ class Customer(models.Model):
     street_address2 = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username

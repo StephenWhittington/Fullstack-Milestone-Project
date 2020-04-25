@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.contrib import auth, messages
 from django.core.urlresolvers import reverse, reverse_lazy
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from .models import Customer
+from .forms import CustomerForm
 
 def index(request):
     """Returns the index.html file"""
@@ -64,3 +66,27 @@ def registration(request):
 
     args = {'user_form': user_form}
     return render(request, 'registration.html', args)
+
+@login_required
+def customer(request):
+    """A view that displays the customer page of a logged in user"""
+    user_id = request.user.pk 
+    currentcustomer = Customer.objects.get(user=user_id)
+    return render(request, 'customer.html', {'customer': currentcustomer})
+
+@login_required
+def create_or_edit_customer(request, pk=None):
+    """
+    Create's a view that allows us to create
+    or edit a customer depending if the Post ID
+    is null or not
+    """
+    details = get_object_or_404(Customer, pk=pk) if pk else None
+    if request.method == "POST":
+        customer = CustomerForm(request.POST, request.FILES, instance=details)
+        if customer.is_valid():
+            details = customer.save()
+            return redirect(customer, customer.pk)
+    else:
+        customer = CustomerForm(instance=details)
+    return render(request, 'edit_customer.html', {'customer': customer})

@@ -9,7 +9,7 @@
 {% block content %}
 <p class="user-forms">If you have an account already, you can <a href="{% url 'login' %}"><strong>sign in</strong></a></p>
 
-<form class="user-forms" method="POST" action="{% url 'registration' %}" class="accountform">
+<form class="user-forms accountform" method="POST" action="{% url 'registration' %}">
         {% csrf_token %}
             {{ user_form | as_bootstrap }}
             <button type="submit" class="btn btn-primary">Register</button>   

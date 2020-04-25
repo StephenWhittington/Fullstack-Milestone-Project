@@ -9,7 +9,7 @@
 {% block content %}
 <p class="user-forms">If you do not have an account, please register here. <a href="{% url 'registration' %}"><strong>Register</strong></a></p>
 
- <form class="user-forms" method="POST" action="{% url 'login' %}?next={{ next }}" class="accountform">
+ <form class="user-forms accountform" method="POST" action="{% url 'login' %}?next={{ next }}">
         {% csrf_token %}
             {{ user_form | as_bootstrap }}
             <button type="submit" class="btn btn-light">Login</button>   

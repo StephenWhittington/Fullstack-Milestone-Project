@@ -25,6 +25,7 @@
                 <ul class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'customer' %}"><i class="fa fa-user" aria-hidden="true"></i> Customer</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
