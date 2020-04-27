@@ -74,6 +74,7 @@ def customer(request):
     currentcustomer = Customer.objects.get(user=user_id)
     return render(request, 'customer.html', {'customer': currentcustomer})
 
+
 @login_required
 def create_or_edit_customer(request, pk=None):
     """
@@ -86,7 +87,8 @@ def create_or_edit_customer(request, pk=None):
         customer = CustomerForm(request.POST, request.FILES, instance=details)
         if customer.is_valid():
             details = customer.save()
-            return redirect(customer, customer.pk)
+            return redirect("customer")
     else:
         customer = CustomerForm(instance=details)
     return render(request, 'edit_customer.html', {'customer': customer})
+    

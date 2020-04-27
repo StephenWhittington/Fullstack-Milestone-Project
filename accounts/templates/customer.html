@@ -7,9 +7,7 @@
 {% block page_header %}Customer Details{% endblock %}
 
 {% block content%}
-<div class="row col-md-12">
-    <p class="artifact-info"><a href="{% url 'new_details' %}" class="btn btn-primary">Add Details</a></p>
-</div>
+{% if user_id == customers %}
     <h3 class="artifact-info">You are logged in as {{ user.username }} </h3>
         <h4 class="artifact-info">Shipping Details:</h4>
         <p class="artifact-info"><span class="boldtext">Full Name:</span> {{ customer.full_name }}</p>
@@ -22,4 +20,9 @@
         <p class="artifact-info"><span class="boldtext">County:</span> {{ customer.county }}</p>
 
         <a href="{% url 'edit_customer' customer.id %}"  class="btn btn-primary">Edit details</a>
+{% else %}        
+    <div class="row col-md-12">
+        <p class="artifact-info"><a href="{% url 'new_details' %}" class="btn btn-primary">Add Details</a></p>
+    </div>
+{% endif %}
 {% endblock %}

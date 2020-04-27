@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1 class="artifact-info">New Details</h1>
-    <form class="user-forms" method="POST" enctype="multipart/form-data">
+    <form class="user-forms" method="POST">
         {% csrf_token %}
         {{ customer | as_bootstrap }}
         <button type="submit" class="btn btn-info">Save</button>
