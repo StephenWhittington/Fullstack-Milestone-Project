@@ -44,9 +44,7 @@ class CustomerForm(forms.ModelForm):
     """
     The form for a user to fill out their basic profile information 
     """
-    def __init__(self, *args, **kwargs):
-        super(CustomerForm, self).__init__(*args, **kwargs)
-
+    
     class Meta:
         model = Customer
         fields = [

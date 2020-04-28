@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.contrib import auth, messages
 from django.core.urlresolvers import reverse, reverse_lazy
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, CustomerForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from .models import Customer
-from .forms import CustomerForm
 
 def index(request):
     """Returns the index.html file"""
@@ -70,13 +69,12 @@ def registration(request):
 @login_required
 def customer(request):
     """A view that displays the customer page of a logged in user"""
-    user_id = request.user.pk 
-    currentcustomer = Customer.objects.get(user=user_id)
+    currentcustomer = Customer.objects.filter(user=request.user)
+
     return render(request, 'customer.html', {'customer': currentcustomer})
 
-
 @login_required
-def create_or_edit_customer(request, pk=None):
+def edit_customer(request, pk=None):
     """
     Create's a view that allows us to create
     or edit a customer depending if the Post ID
@@ -90,5 +88,25 @@ def create_or_edit_customer(request, pk=None):
             return redirect("customer")
     else:
         customer = CustomerForm(instance=details)
-    return render(request, 'edit_customer.html', {'customer': customer})
+        return render(request, 'edit_customer.html', {'customer': customer})
     
+@login_required
+def new_details(request):
+    """
+    Create's a view that allows us to create
+    new details
+    """
+    new_details = (Customer)
+    if request.method == 'POST':
+        new_details = CustomerForm(request.POST, instance=request.user)
+        if new_details.is_valid():
+            new_details.save()
+            messages.success(request, ('Your profile was successfully updated!'))
+            return redirect("customer")
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        new_details = CustomerForm(instance=request.user)
+    return render(request, 'new_details.html', {
+        'new_details': new_details,
+    })
