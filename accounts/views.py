@@ -4,7 +4,9 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from .forms import UserLoginForm, UserRegistrationForm, CustomerForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Customer
+
 
 def index(request):
     """Returns the index.html file"""
@@ -96,17 +98,19 @@ def new_details(request):
     Create's a view that allows us to create
     new details
     """
-    new_details = (Customer)
+    new_details = Customer()
     if request.method == 'POST':
-        new_details = CustomerForm(request.POST, instance=request.user)
+        new_details = CustomerForm(request.POST)
         if new_details.is_valid():
-            new_details.save()
+            customer = new_details.save(commit=False)
+            customer.user = request.user
+            customer.save()
             messages.success(request, ('Your profile was successfully updated!'))
             return redirect("customer")
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
-        new_details = CustomerForm(instance=request.user)
+        new_details = CustomerForm()
     return render(request, 'new_details.html', {
         'new_details': new_details,
     })

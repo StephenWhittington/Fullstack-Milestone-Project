@@ -40,6 +40,8 @@ class UserRegistrationForm(UserCreationForm):
 
         return password2
 
+
+
 class CustomerForm(forms.ModelForm):
     """
     The form for a user to fill out their basic profile information 
