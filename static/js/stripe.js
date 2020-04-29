@@ -1,5 +1,6 @@
 $(function() {
-    $("#payment-form").submit(function() {
+    $("#payment-form").submit(function(event) {
+        event.preventDefault();
         var form = this;
         var card = {
             number: $("#id_credit_card_number").val(),
@@ -9,6 +10,7 @@ $(function() {
         };
     
     Stripe.createToken(card, function(status, response) {
+        console.log(response)
         if (status === 200) {
             $("#credit-card-errors").hide();
             $("#id_stripe_id").val(response.id);

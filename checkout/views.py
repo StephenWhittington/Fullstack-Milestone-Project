@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import ProcessPaymentForm, OrderForm
 from .models import OrderLineItem
 from django.conf import settings
+from django.utils import timezone
 from artifacts.models import Artifact
 import stripe
 
@@ -12,7 +13,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
-    if request.method=="POST":
+    if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = ProcessPaymentForm(request.POST)
 
@@ -27,18 +28,18 @@ def checkout(request):
                 artifact = get_object_or_404(Artifact, pk=id)
                 total += quantity * artifact.price
                 order_line_item = OrderLineItem(
-                    order = order,
-                    artifact = artifact,
-                    quantity = quantity
+                    order=order,
+                    artifact=artifact,
+                    quantity=quantity
                     )
                 order_line_item.save()
             
             try:
                 customer = stripe.Charge.create(
-                    amount = int(total * 100),
-                    currency = "EUR",
-                    description = request.user.email,
-                    card = payment_form.cleaned_data['stripe_id'],
+                    amount=int(total * 100),
+                    currency="EUR",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
