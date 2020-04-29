@@ -30,7 +30,7 @@ def checkout(request):
                 order_line_item = OrderLineItem(
                     order=order,
                     artifact=artifact,
-                    quantity=quantity
+                    quantity=quantity,
                     )
                 order_line_item.save()
             
@@ -47,7 +47,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['basket'] = {}
-                return redirect(reverse('artifacts'))
+                return redirect(reverse('order-success'))
             else:
                 messages.error(request, "Unable to process payment")
         else:
@@ -59,3 +59,5 @@ def checkout(request):
     
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
 
+def order_successful(request):
+    return render(request, "order_success.html")

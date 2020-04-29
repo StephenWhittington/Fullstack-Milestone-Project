@@ -2,6 +2,8 @@ from django.db import models
 from artifacts.models import Artifact
 
 
+
+
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
@@ -22,4 +24,4 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} {1} @ {2}".format(self.quantity, self.artifact.name, self.artifact.price)        
+        return "{0} {1} {2} @ {3}".format(self.order, self.quantity, self.artifact.name, self.artifact.price)        
