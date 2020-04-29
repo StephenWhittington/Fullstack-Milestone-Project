@@ -82,7 +82,7 @@ def edit_customer(request, pk=None):
     or edit a customer depending if the Post ID
     is null or not
     """
-    details = get_object_or_404(Customer, pk=pk) if pk else None
+    details = get_object_or_404(Customer, user=pk) if pk else None
     if request.method == "POST":
         customer = CustomerForm(request.POST, request.FILES, instance=details)
         if customer.is_valid():
