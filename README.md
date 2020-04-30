@@ -163,9 +163,27 @@ of the bootstrap column design and bootstrap forms. I tested the page
 on the three most common web browsers Chrome/IE and Mozzila Firefox and i am happy
 with how it looks.
 
+## Compatibility
+
+To make sure users have a broad range of accessibility, i have tested my project on 3 major browsers in both desktop and mobile size.
+
+* Chrome
+* Mozilla Firefox
+* Internet Explorer
+
 ## Bugs And Problems
 
+I havent come across any bugs yet but more problems with adding different apps to my project
+but due to time frame havent got enough time to add them before submission which is why i have
+focused on the core aspect having a user sign up and purchase an artifact with no errors.
 
+I have had a problem with the django testing framework when i try to do my tests i get an 
+error. I understand how to do automated testing but havent had chance to implement them,
+so i have done most of my tests manually.
+
+    * **Got an error creating the test database: permission denied to create database**
+
+But apart from those parts above my project runs fine without any major errors.
 
 
 
