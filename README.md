@@ -235,6 +235,37 @@ The deployment and live version is hosted via Heroku:
     
 I can confirm that there are no differences from the deployed and the development version.
 
+## How Developers can download and work on my project
+
+    * Click on Clone or Download on my repository.
+    * Create your own enviorment variables  
+    * Clone the project in your workspace using git clone
+    * Devs can also link it with gitpod if you use the `gitpod.io#` url or browers extension.
+
+# Credits
+ 
+ **Content**
+
+ For this project i decided to go back to bootstrap 4 as the inbuilt form views
+ suited for this type of ecommerce web page. Becuase of the time frame i decided
+ to focus mainly on the customer experience from start to end. My CSS styling
+ remained simple as i used the same class objects, but maintained a responsive
+ and easy readable page. Any problems i encounted during the project i went to slack
+ or contacted tutor support and also tried to sorce the answer myself.
+
+ **Media**
+ 
+ * The media images for this project were sorced from [Pixabay](https://pixabay.com/)
+ and are for educational purposes only.
+
+  **Acknowledgements**
+
+I received inspiration for this project from the django ecommerce mini project,
+I then built the project using my own idea instead of the examples given
+and i feel like i understand python,django,stripe a lot better now using it based off my own inspiration.
+
+A huge thanks to my mentor Ignatius Ukwuoma for his time, suggestions, and constructive feedback for this project!
+
 
 
 
