@@ -193,7 +193,7 @@ To make sure users have a broad range of accessibility, i have tested my project
 ## Bugs And Problems
 
 I havent come across any bugs yet but more problems with adding different apps to my project
-but due to time frame havent got enough time to add them before submission which is why i have
+but due to time frame, I havent got enough time to add them before submission which is why i have
 focused on the core aspect having a user sign up and purchase an artifact with no errors.
 
 I have had a problem with the django testing framework when i try to do my tests i get an 
