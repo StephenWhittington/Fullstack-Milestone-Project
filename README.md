@@ -231,7 +231,7 @@ The deployment and live version is hosted via Heroku:
     * I then went to Heroku settings clicked on Config Vars and added my
      `AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, EMAIL_ADDRESS,EMAIL_PASSWORD, HOSTNAME_HEROKU, SECRET_KEY, STRIPE_PUBLISHABLE and STRIPE_SECRET`.
     
-    * These are also hidden by a `.env` file in my repository.
+    * These are also ignored and hidden by a `.env` file in my workspace.
     
 I can confirm that there are no differences from the deployed and the development version.
 
