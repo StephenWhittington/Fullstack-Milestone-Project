@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
     <div class="panel-body">
-        {% if not user.is_authenticated %}
+        {% if not user.customer %}
         <p class="artifact-info text-center"><a href="{% url 'new_details' %}" class="btn btn-primary">Add Details</a></p>
         {% endif %}
         <h3 class="artifact-info">You are logged in as {{ user.username }} </h3>
@@ -26,7 +26,7 @@
         <p class="artifact-info col-sm-6"><span class="boldtext">Street Address 2:</span> {{ user.customer.street_address2 }}</p>
         <p class="artifact-info col-sm-6"><span class="boldtext">County:</span> {{ user.customer.county }}</p>
     </div>
-        {% if user.is_authenticated %}
+        {% if user.customer %}
         <p class=" text-center"><a href="{% url 'edit_customer' user.id %}"  class="btn btn-primary">Edit details</a></p>
         {% endif %}
     </div>
