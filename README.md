@@ -240,7 +240,7 @@ I can confirm that there are no differences from the deployed and the developmen
     * Click on Clone or Download on my repository.
     * Create your own enviorment variables  
     * Clone the project in your workspace using git clone
-    * Devs can also link it with gitpod if you use the `gitpod.io#` url or browers extension.
+    * Devs can also link it with gitpod if you use the `gitpod.io#` url or browser extension.
 
 # Credits
  
