@@ -8,10 +8,7 @@ class Customer(models.Model):
     """
 
     This model will contain all of a customers key information, apart from what is required for
-    authentication (username, password and email). The fields are:
-    - description (a text field the user can fill in giving personal or other information, to
-    describe to other users what they are looking for)
-    - address
+    authentication (username, password and email).
     We also of course use a OneToOneField to link it to a specific user!
 
     """

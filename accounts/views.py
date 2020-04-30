@@ -78,8 +78,8 @@ def customer(request):
 @login_required
 def edit_customer(request, pk=None):
     """
-    Create's a view that allows us to create
-    or edit a customer depending if the Post ID
+    Create's a view that allows us to 
+    edit a customer depending if the Post ID
     is null or not
     """
     details = get_object_or_404(Customer, user=pk) if pk else None
