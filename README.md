@@ -2,8 +2,10 @@
 
 ## By Stephen Whittington
 
+The survey from Travis says:
 [![Build Status](https://travis-ci.org/StephenWhittington/Fullstack-Milestone-Project.svg?branch=master)](https://travis-ci.org/StephenWhittington/Fullstack-Milestone-Project)
 
+(Pull requests will be ignored. This is an educational project and needs to remain a solo effort.)
 
 Find Your Artifact is a single ecommerce web page built with
 the django framework that saves data to the postgresql
@@ -139,5 +141,33 @@ an email for a password reset.
     2. Takes the user to a customer profile page that shows shipping details with current loged in user
     3. {{if not user.customer}} it shows the 'add details' button, and {% if user.customer %} the 'edit details' button.
     4. Confirm that when the user clicks either of these it sends them to a form then saves it to the database.
+
+1. **Customer Checkout**:
+    1. Select quantity and add a artifact to the basket.
+    2. Basket then shows that it has however many items ready for checkout.
+    3. Go to basket and ammend quantity if necessary, once done click checkout. 
+    4. Confirm that when checkout is clicked it brings you to an order/payment form.
+    5. The user enters the form data and the credit card details, then clicks submit payment.
+    6. Confirm that when the user clicks submit paymanet button the order is processed and renders a success page.
+
+1. **Collapse Navbar**:
+    1. Click on the nav icon when in mobile or tablet view.
+    2. navbar collapses showing the links to the user and they can select which page they want to
+    visit.
+    3. Confirmed that the webpage has a responsive collapsing navbar that is easy to use and goes to the correct paths.
+
+### How it looks/works on different browsers and screen sizes
+
+My project runs smoothly on all screen sizes mainly due to the impact
+of the bootstrap column design and bootstrap forms. I tested the page
+on the three most common web browsers Chrome/IE and Mozzila Firefox and i am happy
+with how it looks.
+
+## Bugs And Problems
+
+
+
+
+
 
 
