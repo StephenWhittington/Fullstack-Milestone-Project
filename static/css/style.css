@@ -108,3 +108,15 @@ footer {
     font-weight: bold;
     color: #fff;
 }
+
+@media (max-width: 768px) {
+    .user-forms {
+        width: 100%;
+        margin-left: 0; 
+        margin-right: 0;
+    }
+
+    .panel-default {
+        padding: 10px;
+    }
+}

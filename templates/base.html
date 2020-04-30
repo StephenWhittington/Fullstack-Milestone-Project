@@ -56,20 +56,20 @@
             </div>
         </div>
     {% endif %}
-    <div class="container-fluid">
-        <div class="display">
+    <div class="container">
+        <div class="display text-center">
             <form action="{% url 'search' %}" method="GET">
                 <input type="text" name="q">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
         </div>
-        <h1 class="user-forms">{% block page_header %}{% endblock %}</h1>
+        <h1 class="text-center boldtext">{% block page_header %}{% endblock %}</h1>
         {% block content %}{% endblock %}
     </div>
     
     <footer>
-        <div class="container">
-            <h4>&copy; Made by Stephen Whittington</h4>
+        <div class="container text-center">
+            <h5>&copy; Made by Stephen Whittington</h5>
         </div>
     </footer>
 </body>

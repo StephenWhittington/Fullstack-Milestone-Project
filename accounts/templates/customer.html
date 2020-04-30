@@ -4,24 +4,31 @@
 
 {% block page_title %}Customer Profile{% endblock %}
 
-{% block page_header %}Customer Details{% endblock %}
+{% block page_header %}Customer Details:{% endblock %}
 
 {% block content %}
- <div class="row col-md-12">
-        <p class="artifact-info"><a href="{% url 'new_details' %}" class="btn btn-primary">Add Details</a></p>
-    </div>
-    <h3 class="artifact-info">You are logged in as {{ user.username }} </h3>
+<div class="container">
+    <div class="panel-body">
+        {% if not user.is_authenticated %}
+        <p class="artifact-info text-center"><a href="{% url 'new_details' %}" class="btn btn-primary">Add Details</a></p>
+        {% endif %}
+        <h3 class="artifact-info">You are logged in as {{ user.username }} </h3>
         <h4 class="artifact-info">Shipping Details:</h4>
-
-        <p class="artifact-info"><span class="boldtext">Full Name:</span> {{ user.customer.full_name }}</p>
-        <p class="artifact-info"><span class="boldtext">Phone Number:</span> {{ user.customer.phone_number }}</p>
-        <p class="artifact-info"><span class="boldtext">Country:</span> {{ user.customer.country }}</p>
-        <p class="artifact-info"><span class="boldtext">Postcode:</span> {{ user.customer.postcode }}</p>
-        <p class="artifact-info"><span class="boldtext">Town/City:</span> {{ user.customer.town_or_city }}</p>
-        <p class="artifact-info"><span class="boldtext">Street Address 1:</span> {{ user.customer.street_address1 }}</p>
-        <p class="artifact-info"><span class="boldtext">Street Address 2:</span> {{ user.customer.street_address2 }}</p>
-        <p class="artifact-info"><span class="boldtext">County:</span> {{ user.customer.county }}</p>
-
-        <a href="{% url 'edit_customer' user.id %}"  class="btn btn-primary">Edit details</a>
-
+    <div class="row">
+        <p class="artifact-info col-sm-6"><span class="boldtext">Full Name:</span> {{ user.customer.full_name }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">Phone Number:</span> {{ user.customer.phone_number }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">Country:</span> {{ user.customer.country }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">Postcode:</span> {{ user.customer.postcode }}</p>
+    </div>
+    <div class="row">
+        <p class="artifact-info col-sm-6"><span class="boldtext">Town/City:</span> {{ user.customer.town_or_city }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">Street Address 1:</span> {{ user.customer.street_address1 }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">Street Address 2:</span> {{ user.customer.street_address2 }}</p>
+        <p class="artifact-info col-sm-6"><span class="boldtext">County:</span> {{ user.customer.county }}</p>
+    </div>
+        {% if user.is_authenticated %}
+        <p class=" text-center"><a href="{% url 'edit_customer' user.id %}"  class="btn btn-primary">Edit details</a></p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
