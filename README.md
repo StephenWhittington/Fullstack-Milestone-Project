@@ -222,7 +222,7 @@ The deployment and live version is hosted via Heroku:
     * I then created a `requirements.txt` and `Procfile`:
         
         * `sudo pip3 freeze > requirements.txt`
-        * `echo web: gunicorn ecommerce.wsgi:application > Procfile`
+        * `echo web: gunicorn find_your_artifact.wsgi:application > Procfile`
     
     * Then added all my project files using `git add .` and commited with `git commit -am "make it better"`
     
