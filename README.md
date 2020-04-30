@@ -114,6 +114,18 @@ an email for a password reset.
   
     * AWS hosts the static and media files using S3
 
+* [PostgreSQL](https://www.postgresql.org/)
+  
+    * I have used PostgreSQL to store and retrieve the data.
+
+* [Travis CI](https://travis-ci.org/)
+  
+    * I have used Travis to test my code each push to GitHub.
+
+* [Gunicorn](https://gunicorn.org/)
+  
+    * I have used Gunicorn to allow me to connect to Heroku.
+
 # Testing 
 
 ### User Story Tests Completed   
@@ -156,6 +168,13 @@ an email for a password reset.
     visit.
     3. Confirmed that the webpage has a responsive collapsing navbar that is easy to use and goes to the correct paths.
 
+1. **Password Reset**:
+    1. Go to password reset page
+    2. Try to submit the form with all inputs valid and verify that a success message appears.
+    3. Then the user gets an email they open it and click the link to go to change their password
+    4. Try to submit the form with all inputs valid and verify that a success message appears.
+    5. Confirm that when the user goes to log back in they can use their new password.
+
 ### How it looks/works on different browsers and screen sizes
 
 My project runs smoothly on all screen sizes mainly due to the impact
@@ -184,6 +203,38 @@ so i have done most of my tests manually.
     * **Got an error creating the test database: permission denied to create database**
 
 But apart from those parts above my project runs fine without any major errors.
+
+# Deployment
+
+My source code was all done via GitHub, You can find my repository here:
+    
+* **Repository**:[https://github.com/StephenWhittington/Fullstack-Milestone-Project](https://github.com/StephenWhittington/Fullstack-Milestone-Project)
+
+The deployment and live version is hosted via Heroku:
+
+* **Heroku**:[https://find-your-artifact.herokuapp.com/](https://find-your-artifact.herokuapp.com/)
+    
+    * First I created a new app and named it and set the region. 
+    
+    * Then I logged into heroku via git with `heroku login` and connected git to the new app location using
+    `heroku git:remote`.
+
+    * I then created a `requirements.txt` and `Procfile`:
+        
+        * `sudo pip3 freeze > requirements.txt`
+        * `echo web: gunicorn ecommerce.wsgi:application > Procfile`
+    
+    * Then added all my project files using `git add .` and commited with `git commit -am "make it better"`
+    
+    * The project was then pushed using `git push heroku master` and scaled the app dynos using `heroku ps:scale web=1`.
+    
+    * I then went to Heroku settings clicked on Config Vars and added my
+     `AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, EMAIL_ADDRESS,EMAIL_PASSWORD, HOSTNAME_HEROKU, SECRET_KEY, STRIPE_PUBLISHABLE and STRIPE_SECRET`.
+    
+    * These are also hidden by a `.env` file in my repository.
+    
+I can confirm that there are no differences from the deployed and the development version.
+
 
 
 
